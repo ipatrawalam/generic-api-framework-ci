@@ -49,9 +49,9 @@ jobs:
           echo "API_KEY=${{ secrets.REQRES_API_KEY }}" >> $GITHUB_ENV
           
       - name: Run API Tests and Generate Allure Results
-        # This assumes your package.json has a script like "test:api:users": "npx playwright test tests/userApi.spec.ts tests/registerApi.spec.ts"
+        # This assumes your package.json has a script like "test:prod": "npx playwright test tests/userApi.spec.ts tests/registerApi.spec.ts"
         # And that playwright.config.ts has Allure reporter configured
-        run: npm run test:api:users
+        run: npm run test:prod
         continue-on-error: true # Continue even if tests fail to ensure report generation
         
       - name: Generate Allure HTML Report
